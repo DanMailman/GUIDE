@@ -73,19 +73,34 @@ from UTILS import GetSolutionStatements      # GetSolutionStatements(): Generate
 from UTILS import GenerateGraphsPDF          # Creates a PDF with plots for given problems.
 ```
 ### Function/Method Docs
--  he **FileDocs** or **MethodDocs** are inside the function before and at the same indent level as its code block.
-- The **FileDocs** or **MethodDocs** are two single-line comments:
-  - The **Usage Line** tells users of the function/method what it does when used in code.
-    - The Usage line begins with the name of the function and is followed by a functionality description. 
-    - Common first words for Usage Lines are `return` and `output`
-  - The **Implementation Line** tells maintainers what they need to know to maintain/change the code.
-    - The first word for Implementation Lines is `implementation: `
+- **FileDocs** or **MethodDocs** are inside the function before and at the same indent level as its code block.
+- **FileDocs** or **MethodDocs** are two single-line comments:
+  - **Usage Line** 
+    - The first comment line states the function name and a brief description of its functionality.
+      - Common first words for **Usage Line**s are `Return` and `Output`
+    - **Example:**
+         ```python
+         # GetSolutionDictionary(): Returns Dictionary of Solution Elements.
+         ```
+  - **Implementation Line**
+    - The next comment line starts with `# implementation:` and lists Python facilities.
+    - The listed facilities indicate what maintainers need to know for effective maintenance.
+    - **Example:**
+       ```python
+       # implementation: float(), sqrt(), atan(), degrees(), round()
+       ```
   - For one-line functions, implementation lines are discretionary (but recommended).
-```python
-def IsEven(nNumber):
-    # IsEven(): Returns True if nNumber is even
-    return (nNumber % 2) == 0
-```
+      ```python
+      def IsEven(nNumber):
+          # IsEven(): Returns True if nNumber is even
+          return (nNumber % 2) == 0
+      ```
+  - **Additional Docs (Optional):**  
+   - Additional notes (prefixed with `# NOTE:`) may be added for context, 
+   - **Example:**
+       ```python
+       # NOTE: PrintDictionaryList(), PrintSolutionStatements() for debugging output.
+       ```
 ### Inline Docs
 - Good code is self-documenting. So, additional comments hinder productivity by wasting reader scan.
 - Inline comments are reserved for supplementary explanation that aid clarity.
