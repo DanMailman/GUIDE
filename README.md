@@ -58,20 +58,21 @@ k_sGraphsFile     = 'Ex01_01_Graphs.pdf'
 ```
 ### Imports Docs
 - One line for each type (class), function, or constant used from each package followed by a terse, comment:
-```python
-from os import makedirs                      # makedirs(): Creates directories
-from os import path                          # path: Handles file and directory paths
-from sys import stderr                       # stderr: Outputs error messages
-from sys import exit                         # exit(): Exits the program with a status code
-from typing import Dict                      # Dict: Type hint for dictionary structures
-from UTILS import GetProblemListFromFile     # GetProblemListFromFile(): Parses problem CSV into a dictionary list
-from UTILS import GetSolutionDictionaryList  # GetSolutionDictionaryList(): Processes problems with a solution function
-from UTILS import PutSolutionDictionaryList  # PutSolutionDictionaryList(): Outputs solution dictionaries to CSV
-from UTILS import OutputSolutionStatements   # OutputSolutionStatements(): Prints formatted solution statements
-from UTILS import PrintDictionaryList        # PrintDictionaryList(): Output dictionaries in a list in readable format.
-from UTILS import GetSolutionStatements      # GetSolutionStatements(): Generate solution statements using the provided function.
-from UTILS import GenerateGraphsPDF          # Creates a PDF with plots for given problems.
-```
+    ```python
+    from os import makedirs                      # makedirs(): Creates directories
+    from os import path                          # path: Handles file and directory paths
+    from sys import stderr                       # stderr: Outputs error messages
+    from sys import exit                         # exit(): Exits the program with a status code
+    from typing import Dict                      # Dict: Type hint for dictionary structures
+    from UTILS import GetProblemListFromFile     # GetProblemListFromFile(): Parses problem CSV into a dictionary list
+    from UTILS import GetSolutionDictionaryList  # GetSolutionDictionaryList(): Processes problems with a solution function
+    from UTILS import PutSolutionDictionaryList  # PutSolutionDictionaryList(): Outputs solution dictionaries to CSV
+    from UTILS import OutputSolutionStatements   # OutputSolutionStatements(): Prints formatted solution statements
+    from UTILS import PrintDictionaryList        # PrintDictionaryList(): Output dictionaries in a list in readable format.
+    from UTILS import GetSolutionStatements      # GetSolutionStatements(): Generate solution statements using the provided function.
+    from UTILS import GenerateGraphsPDF          # Creates a PDF with plots for given problems.
+    ```
+- NOTE: This style improves diff readability and minimizes merge conflicts.
 ### Function/Method Docs
 - **FileDocs** or **MethodDocs** are inside the function before and at the same indent level as its code block.
 - **FileDocs** or **MethodDocs** are two single-line comments:
@@ -104,6 +105,7 @@ from UTILS import GenerateGraphsPDF          # Creates a PDF with plots for give
 ### Inline Docs
 - Good code is self-documenting. So, additional comments hinder productivity by wasting reader scan.
 - Inline comments are reserved for supplementary explanation that aid clarity.
+- While inline comments should be minimal, they should never be sacrificed when clarity is at risk.
 ## IDENTIFIER NAMING 
 ### In General
 - To minimize reader scan, use as few characters as possible for identifiers.
@@ -143,6 +145,9 @@ k_sSolutionFile   = 'Ex01_01_Solutions.csv'
 k_sStatementsFile = 'Ex01_01_Statements.csv'
 k_sGraphsFile     = 'Ex01_01_Graphs.pdf'
 ```
+- **Rationale**
+  - Type-Prefixed PascalCase enhances readability across languages.
+  - Makes it easier to debug by indicating type/class in variable names
 ## SPACING & LAYOUT
 - **Vertical Space is Gold**  
   - Insert blank lines *only* to delineate significant logic sections.  
@@ -154,6 +159,8 @@ k_sGraphsFile     = 'Ex01_01_Graphs.pdf'
 - **Docstrings**  
   Exclude unless explicitly required by the project. 
   They add extra blank lines in many Python code editors—GUIDE avoids that clutter.
+- **Exceptions**  
+  While 80–100 characters is the target, practical exceptions may be allowed if they enhance clarity. 
 ## PROGRAM STRUCTURE
 ### RECOMMENDATIONS
 - run-time constants grouped immediately after imports to make them easier to find in reader scan  
@@ -174,6 +181,8 @@ from utils    import helper_function   # helper_function: Utility for additional
 ## DEVIATIONS FROM COMMON PYTHON PRACTICES
 These divergences are intentional design choices aligned with GUIDE’s goal of speed and clarity 
 for experienced and polyglot programmers frequently switching between languages.
+They enable choices rapid scanning by experienced, multi-language developers
+
 ### Excluding `"""docstrings"""`
 Typical Python convention (PEP 257) favors docstrings for automated documentation and code introspection.  
 GUIDE consciously eliminates them to preserve vertical space for experienced and polyglot programmers.
@@ -195,3 +204,50 @@ GUIDE uses `k_` prefix with PascalCase (e.g., `k_sProblemFile`). Again, it’s a
 GUIDE aims to empower experienced developers by maximizing clarity and minimizing boilerplate. 
 Any variation from these guidelines should be called out explicitly and reserved for compelling cases. 
 The result: code that is uniformly legible, easy to maintain, and efficient to scan for polyglot programmers.
+
+# Potential Enhancements for MindStride Python GUIDE
+
+The following enhancements are under consideration to further support consistency and clarity for experienced, polyglot developers.
+
+## 1. Rationale for Deviations
+Explain briefly why the guide diverges from standard Python practices:
+- **Docstrings vs. Line Comments:**  
+  The guide intentionally avoids `"""docstrings"""` to conserve vertical space, enabling rapid scanning for experienced programmers.
+- **Type-Prefixed Identifiers:**  
+  Using short type prefixes (e.g., `n` for numbers, `s` for strings) facilitates quick identification of variable types and improves cross-language readability.
+- **PascalCase for Function Names:**  
+  Although PEP 8 recommends `snake_case`, PascalCase is adopted here to align with conventions in many other languages, easing transitions between languages.
+- **Constants Not in ALL_CAPS:**  
+  Constants are prefixed with `k_` in PascalCase to maintain visual consistency and to simplify the grouping of constants.
+
+## 2. Tooling Considerations
+Integrate and configure tools to support these guidelines:
+- **Linters and Formatters:**  
+  Set up tools like `pylint` or `flake8` with custom rules that permit the deviations (e.g., avoidance of docstrings, type-prefixed naming) defined in this guide.
+- **IDE Settings:**  
+  Adjust IDE configurations to favor the compact, line-comment style (for example, disabling automatic docstring insertion if not needed).
+- **Automated Checks:**  
+  Develop scripts or use existing plugins to verify adherence to the guidelines (e.g., checking file headers, import ordering, and naming conventions).
+
+## 3. Consistency Reminders
+Include a final checklist to ensure all projects adhere to the guide:
+- **File Headers:**  
+  Every file must begin with a concise header (filename, author, date, and optional licensing information).
+- **Import Style:**  
+  Ensure that each import is on its own line with clear inline comments.
+- **Function Documentation:**  
+  Use a usage line followed by a terse implementation line (listing only the Python facilities maintainers must know).
+- **Identifier Naming:**  
+  Follow the type-prefixed PascalCase convention for variables, constants, and function names.
+- **Spacing and Layout:**  
+  Use vertical spacing only to delineate significant logic sections and maintain line lengths of 80–100 characters.
+- **Deviation Documentation:**  
+  Any intentional deviation from the guide should be clearly noted with a `NOTE:` comment explaining the rationale.
+
+## Summary Checklist
+- [ ] File headers are present and conform to the guidelines.
+- [ ] Each import is on its own line and includes a succinct comment.
+- [ ] Function documentation follows the usage and implementation format.
+- [ ] Identifiers are named using type-prefixed PascalCase.
+- [ ] Vertical spacing and line lengths are consistent with the guide.
+- [ ] Any intentional deviations are clearly documented with explanatory `NOTE:` comments.
