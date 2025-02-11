@@ -251,3 +251,16 @@ Include a final checklist to ensure all projects adhere to the guide:
 - [ ] Identifiers are named using type-prefixed PascalCase.
 - [ ] Vertical spacing and line lengths are consistent with the guide.
 - [ ] Any intentional deviations are clearly documented with explanatory `NOTE:` comments.
+
+# BODEGA
+To make it clear that iteration variables should include a descriptive suffix after the i prefix, update the Variable Names section in the GUIDE as follows:
+
+Iteration Variables:
+Iterators used in loops must be named with the prefix i followed by a descriptive identifier that clarifies what is being iterated. For example, when iterating over categories, use iCategory instead of a generic name like iIdx.
+# Instead of:
+for iIdx, sCategory in enumerate(vCategories):
+    ...
+
+# Use:
+for iCategory, sCategory in enumerate(vCategories):
+    ...
