@@ -25,17 +25,17 @@
 - Use vertical alignment of equivalent elements to enhance readability via pattern matching.
 - Use spacing with delimiters (#) to enhance readability.
 ```python
-from os     import makedirs                   # makedirs(): Creates directories
-from os     import path                       # path: Handles file and directory paths
-from sys    import stderr                     # stderr: Outputs error messages
-from sys    import exit                       # exit(): Exits the program with a status code
-from typing import Dict                       # Dict: Type hint for dictionary structures
-from UTILS  import GetProblemListFromFile     # GetProblemListFromFile(): Parses problem CSV into a dictionary list
-from UTILS  import GetSolutionDictionaryList  # GetSolutionDictionaryList(): Processes problems with a solution function
-from UTILS  import PutSolutionDictionaryList  # PutSolutionDictionaryList(): Outputs solution dictionaries to CSV
-from UTILS  import OutputSolutionStatements   # OutputSolutionStatements(): Prints formatted solution statements
-from UTILS  import PrintDictionaryList        # PrintDictionaryList(): Output dictionaries in a list in readable format.
-from UTILS  import GetSolutionStatements      # GetSolutionStatements(): Generate solution statements using the provided function.
+from os     import makedirs                   # Creates directories
+from os     import path                       # Handles file and directory paths
+from sys    import stderr                     # Outputs error messages
+from sys    import exit                       # Exits the program with a status code
+from typing import Dict                       # Type hint for dictionary structures
+from UTILS  import GetProblemListFromFile     # Parses problem CSV into a dictionary list
+from UTILS  import GetSolutionDictionaryList  # Processes problems with a solution function
+from UTILS  import PutSolutionDictionaryList  # Outputs solution dictionaries to CSV
+from UTILS  import OutputSolutionStatements   # Prints formatted solution statements
+from UTILS  import PrintDictionaryList        # Output dictionaries in a list in readable format.
+from UTILS  import GetSolutionStatements      # Generate solution statements using the provided function.
 from UTILS  import GenerateGraphsPDF          # Creates a PDF with plots for given problems.
 k_sProblemFolder  = 'PROBLEMS'
 k_sSolutionFolder = 'SOLUTIONS'
@@ -59,17 +59,17 @@ k_sGraphsFile     = 'Ex01_01_Graphs.pdf'
 ### Imports Docs
 - One line for each type (class), function, or constant used from each package followed by a terse, comment:
     ```python
-    from os import makedirs                      # makedirs(): Creates directories
-    from os import path                          # path: Handles file and directory paths
-    from sys import stderr                       # stderr: Outputs error messages
-    from sys import exit                         # exit(): Exits the program with a status code
-    from typing import Dict                      # Dict: Type hint for dictionary structures
-    from UTILS import GetProblemListFromFile     # GetProblemListFromFile(): Parses problem CSV into a dictionary list
-    from UTILS import GetSolutionDictionaryList  # GetSolutionDictionaryList(): Processes problems with a solution function
-    from UTILS import PutSolutionDictionaryList  # PutSolutionDictionaryList(): Outputs solution dictionaries to CSV
-    from UTILS import OutputSolutionStatements   # OutputSolutionStatements(): Prints formatted solution statements
-    from UTILS import PrintDictionaryList        # PrintDictionaryList(): Output dictionaries in a list in readable format.
-    from UTILS import GetSolutionStatements      # GetSolutionStatements(): Generate solution statements using the provided function.
+    from os import makedirs                      # Creates directories
+    from os import path                          # Handles file and directory paths
+    from sys import stderr                       # Outputs error messages
+    from sys import exit                         # Exits the program with a status code
+    from typing import Dict                      # Type hint for dictionary structures
+    from UTILS import GetProblemListFromFile     # Parses problem CSV into a dictionary list
+    from UTILS import GetSolutionDictionaryList  # Processes problems with a solution function
+    from UTILS import PutSolutionDictionaryList  # Outputs solution dictionaries to CSV
+    from UTILS import OutputSolutionStatements   # Prints formatted solution statements
+    from UTILS import PrintDictionaryList        # Output dictionaries in a list in readable format.
+    from UTILS import GetSolutionStatements      # Generate solution statements using the provided function.
     from UTILS import GenerateGraphsPDF          # Creates a PDF with plots for given problems.
     ```
 - NOTE: This style improves diff readability and minimizes merge conflicts.
@@ -169,14 +169,14 @@ k_sGraphsFile     = 'Ex01_01_Graphs.pdf'
 Use line comments to Separate imports by class (standard, third‑party, local)
 ```python
 # Standard Library Imports 
-from os   import path   # path: File and directory path manipulations
-from sys  import exit   # exit: Terminate the program gracefully
+from os   import path                 # File and directory path manipulations
+from sys  import exit                 # Terminate the program gracefully
 #  Third-Party Imports 
-from numpy  import array      # array: High-performance array operations
-from pandas import DataFrame  # DataFrame: 2D labeled data structure for data analysis
+from numpy  import array              # High-performance array operations
+from pandas import DataFrame          # 2D labeled data structure for data analysis
 #  Local Imports 
 from mymodule import my_function      # my_function: Custom business logic from mymodule
-from utils    import helper_function   # helper_function: Utility for additional support tasks
+from utils    import helper_function  # helper_function: Utility for additional support tasks
 ```
 ## DEVIATIONS FROM COMMON PYTHON PRACTICES
 These divergences are intentional design choices aligned with GUIDE’s goal of speed and clarity 
