@@ -1,3 +1,4 @@
+
 # MindStride Python GUIDE
 **A Simple Standard for Experienced Programmers**
 ## INTRODUCTION & ASSUMPTIONS
